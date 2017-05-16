@@ -9,11 +9,11 @@
 >>
 >>_PyV8.so
 
-> ### iii. 将这两个文件拷贝到python的第三方包的目录中
+> ### iii. 将这两个文件拷贝到python的第三方包的安装目录中
 
 >>```bash
 >>cd  pyv8  # 进入目录
->>cp  * /usr/local/lib/python2.7/site-packages/  # 复制到你的python安装目录的第三方包目录中
+>>cp  * /usr/local/lib/python2.7/site-packages/  # 复制到你的python安装目录的第三方包目录中，具体目录根据个人实际情况选择，如虚拟环境的第三方安装包目录
 >>```
 
 ## 2. 安装说明
