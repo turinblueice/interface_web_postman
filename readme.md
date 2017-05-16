@@ -12,8 +12,8 @@
 > ### iii. 将这两个文件拷贝到python的第三方包的目录中
 
 >>```bash
->>cd pyv8  # 进入目录
->>cp  *  /<python_dir>/dist-packages/  # 复制到你的python安装目录的第三方包目录中
+>>cd  pyv8  # 进入目录
+>>cp  * /usr/local/lib/python2.7/site-packages/  # 复制到你的python安装目录的第三方包目录中
 >>```
 
 ## 2. 安装说明
@@ -22,7 +22,8 @@
 > 首先需要安装pip工具, 安装相关依赖如下
 >
 > **_pip install -r requirements.txt_**
-
+> 
+> 需要安装sqlite3，安装教程 http://www.runoob.com/sqlite/sqlite-installation.html
 
 ## 3. 运行说明
 
