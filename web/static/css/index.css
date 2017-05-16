@@ -1,0 +1,27 @@
+
+.index-wrapper{
+    width: 100%;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
+.title{
+    font-size: 30px;
+    width: 80%;
+    margin: 20px;
+}
+
+.content{
+    width: 90%;
+    margin: 20px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.line{
+
+    font-size: 14px;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}

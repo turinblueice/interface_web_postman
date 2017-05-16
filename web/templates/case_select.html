@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}用例查看展示面板{% endblock %}
+{% block js_path %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/cases.js') }}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            initSideBar();
+        })
+
+    </script>
+{% endblock %}
+{% block css_path %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/case-select.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="group-select">
+        <div class="case-description">选择分组展示case:</div>
+        <select class="case-group-select">
+            <option value="0" {%if 0 == group_id%}selected="selected"{%endif%}>所有case</option>
+            {% for group in groups %}
+                <option value="{{group.id}}" {%if group.id == group_id%}selected="selected"{%endif%}>{{group.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="case-board">
+        {% for case in pagination.items %}
+        <div class="case-wrapper">
+            <div class="case-info">
+                <input type="checkbox" class="option-input" name="case" value={{case.id}}>
+                {{case.name}}<span class="url">{{case.url}}</span>
+            </div>
+            <div class="case-update"><a href="/cases/update-board/{{case.id}}/" target="_blank" class="update"></a></div>
+            <div class="case-delete"><button class="delete"></button></div>
+        </div>
+
+        {% endfor %}
+        <button id="btn-submit">提交</button>
+    </div>
+    <div class="page-items">
+        {% if pagination.page > 1 %}
+            <div class="page-item page-item-side">
+                <a href="{{url_for('cases.display', group_id=group_id, page_num=pagination.page-1)}}">上一页</a>
+            </div>
+        {% endif %}
+        {% for page_num in page_nums %}
+            <div class="page-item {% if page_num == pagination.page %}current-page{% endif %}">
+                <a href="{{url_for('cases.display', group_id=group_id, page_num=page_num)}}">{{page_num}}</a>
+            </div>
+        {% endfor %}
+        {% if pagination.page < pagination.pages %}
+            <div class="page-item page-item-side">
+                <a href="{{url_for('cases.display', group_id=group_id, page_num=pagination.page+1)}}">下一页</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

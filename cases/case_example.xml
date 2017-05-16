@@ -1,0 +1,70 @@
+<cases>
+    <case id="1" name="测试1" desc="">
+        <url>http://qa.in66.com/client/discover/hot?osv=5.1.1&amp;density=3.0&amp;last_id=,&amp;current_receive_item_cnt=8&amp;imei=353490061711707&amp;wma=38:ff:36:0b:92:f8&amp;page=4&amp;aid=e669d99122cb703e&amp;device=google.Nexus+5&amp;sign=2.y44491718aceeebe3bd362243c958f40c1476883496&amp;_ch=itugo&amp;_g=f&amp;_gps=0.0,0.0&amp;_imei=353490061711707&amp;_n=WIFI&amp;_pf=Nexus+5&amp;_res=1080&amp;_s=android&amp;_token=f52f61944cef9fd01b423a7d73150516&amp;_udid=ariesGCMfa8088ea66b1f8a5f2cee166dc000e5f&amp;_uuid=e669d99122cb703e&amp;_v=2.9.93&amp;_wm=38:ff:36:0b:92:f8&amp;_wn=jywifi</url>
+        <method>get</method>
+        <header>
+            <User-Agent>
+                Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36(KHTML, like Gecko) Chrome/53.0.2785.101 Safari/537.36
+            </User-Agent>
+        </header>
+        <body>
+            <params>
+                <!-- <user>11</user>
+                <password></password> -->
+            </params>
+        </body>
+        <result>
+            <succ>true</succ>
+            <data-breakpoints-last_id></data-breakpoints-last_id>
+        </result>
+    </case>
+    <case id="2" name="测试2" desc="">
+        <url>http://qa.in66.com/client/discover/hot?osv=5.1.1&amp;density=3.0&amp;last_id=,&amp;current_receive_item_cnt=8&amp;imei=353490061711707&amp;wma=38:ff:36:0b:92:f8&amp;page=4&amp;aid=e669d99122cb703e&amp;device=google.Nexus+5&amp;sign=2.y44491718aceeebe3bd362243c958f40c1476883496&amp;_ch=itugo&amp;_g=f&amp;_gps=0.0,0.0&amp;_imei=353490061711707&amp;_n=WIFI&amp;_pf=Nexus+5&amp;_res=1080&amp;_s=android&amp;_token=f52f61944cef9fd01b423a7d73150516&amp;_udid=ariesGCMfa8088ea66b1f8a5f2cee166dc000e5f&amp;_uuid=e669d99122cb703e&amp;_v=2.9.93&amp;_wm=38:ff:36:0b:92:f8&amp;_wn=jywifi</url>
+        <method>get</method>
+        <header>
+            <User-Agent>
+                Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36(KHTML, like Gecko) Chrome/53.0.2785.101 Safari/537.36
+            </User-Agent>
+        </header>
+        <body>
+            <params>
+                <!-- <user>11</user>
+                <password></password> -->
+            </params>
+        </body>
+        <result>
+            <succ>true</succ>
+        </result>
+    </case>
+    <case id="3" name="测试3" desc="">
+        <url>http://qa.in66.com/client/discover/hot?osv=5.1.1&amp;density=3.0&amp;last_id=,&amp;current_receive_item_cnt=8&amp;imei=353490061711707&amp;wma=38:ff:36:0b:92:f8&amp;page=4&amp;aid=e669d99122cb703e&amp;device=google.Nexus+5&amp;sign=2.y44491718aceeebe3bd362243c958f40c1476883496&amp;_ch=itugo&amp;_g=f&amp;_gps=0.0,0.0&amp;_imei=353490061711707&amp;_n=WIFI&amp;_pf=Nexus+5&amp;_res=1080&amp;_s=android&amp;_token=f52f61944cef9fd01b423a7d73150516&amp;_udid=ariesGCMfa8088ea66b1f8a5f2cee166dc000e5f&amp;_uuid=e669d99122cb703e&amp;_v=2.9.93&amp;_wm=38:ff:36:0b:92:f8&amp;_wn=jywifi</url>
+        <method>get</method>
+        <header>
+            <User-Agent>
+                Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36(KHTML, like Gecko) Chrome/53.0.2785.101 Safari/537.36
+            </User-Agent>
+        </header>
+        <body>
+            <params>
+                <!-- <user>11</user>
+                <password></password> -->
+            </params>
+        </body>
+        <result>
+        </result>
+    </case>
+
+    <!-- <case id="2" name="22222" desc="">
+        <url>http://xxx</url>
+        <method>post</method>
+        <header>
+            <User-Agent>22</User-Agent>
+        </header>
+        <body>
+            <params>
+                <user>22</user>
+                <password></password>
+            </params>
+        </body>
+    </case> -->
+</cases>

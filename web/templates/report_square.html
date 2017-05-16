@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}测试报告广场列表-最近七天{% endblock %}
+{% block js_path %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/report-square.js') }}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            initSideBar();
+        })
+
+    </script>
+{% endblock %}
+{% block css_path %}
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/report-square.css') }}"> -->
+{% endblock %}
+{% block body %}
+    {% for report_time in report_urls_dic %}
+        <div class="report">
+            <div class="report-time">{{report_time}}</div>
+            <div class="report-urls">
+                {% for url in report_urls_dic[report_time] %}
+                    <div class="report-url"><a href="{{ url_for('report.show_date_report', date=url[0:8], time=url) }}"}
+                     target="_blank">
+                        {{url}}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

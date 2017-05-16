@@ -1,0 +1,530 @@
+
+.mask{
+    width:100%;
+    height:100%;
+    background-color:#000;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    opacity:0.5;
+    position:absolute;
+    left:0px;
+    top:0px;
+    display:none;
+    z-index:1000;
+}
+
+.case-frame
+{
+    width:380px;
+    height:580px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    background-color:#DDDDDD;
+    margin-left:-190px;
+    margin-top: -290px;
+    display:none;
+    z-index:1500;
+    border-radius: 15px;
+    border: solid 1px black;
+}
+
+.case-frame .button-line{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+}
+
+.case-frame button{
+    display: inline-block;
+    margin-right: 10px;
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+.case-description{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: cursive;
+    font-size: 14px;
+    color: #919191
+}
+
+.case-frame input{
+    margin: 0 auto;
+    margin-top: 8px;
+    width: 80%;
+    height: 25px;
+    border: solid 1px black;
+    display: block;
+    padding: 0;
+}
+
+.case-frame textarea{
+    margin: 0 auto;
+    margin-top: 8px;
+    width: 80%;
+    height: 160px;
+    border: solid 1px black;
+    display: block;
+    padding: 0;
+}
+
+.case-frame .select{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.prior-select{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.group-select{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.case-frame select{
+    width: 80px;
+    margin-top: 5px;
+    appearance: none; /*清除select下拉框默认样式*/
+    -moz-appearance: none; /*for firefox*/
+    -webkit-appearance: none; /*for chrome*/
+    padding-left: 25px;
+    font-size: 16px;
+    background: #E6E6E6 url("../image/arrow.png") no-repeat scroll right center;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 0;
+}
+
+#add-group{
+    width: 100%;
+
+}
+
+/*************** 主面板  *************/
+.wrapper{
+
+    padding: 20px;
+    border: solid 1px #BBBBBB;
+    border-radius: 20px;
+}
+
+#header{
+    margin-top: 10px;
+    margin-bottom: 2px;
+    display:table;
+    width: 100%;
+}
+
+.tab{
+    display: table;
+    width: 100%;
+}
+
+.tab-row{
+    display:table-row;
+    width: 100%;
+    /*height: 40px;*/
+}
+
+.head-cell{
+    display:table-cell;
+    width: 9%;
+    height: 40px;
+    border: solid 1px #C4C4C4;
+    vertical-align: middle
+}
+
+.select-table-cell {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    appearance: none; /*清除select下拉框默认样式*/
+    -moz-appearance: none; /*for firefox*/
+    -webkit-appearance: none; /*for chrome*/
+    padding-left: 25px;
+    font-size: 16px;
+    border-radius: 0;
+    background: #E6E6E6 url("../image/arrow.png") no-repeat scroll right center; /*箭头靠右上下居中*/
+}
+
+.head-cell.url{
+    width: 64%
+}
+
+.head-cell.url input {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    border: 0px;
+    display: block;
+    background: #E6E6E6;
+}
+
+button{
+
+    height: 100%;
+    width: 100%;
+    background-color: #E6E6E6;
+    padding: 0;
+    border-width: 0;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    margin-right:10px
+}
+
+.save-req{
+    color: #808080;
+}
+
+.send:hover{
+    color: white;
+    background-color: #4164F1
+}
+
+.param{
+    display: table;
+    width: 100%;
+    /*margin-top:2px;*/
+    background-color: white;
+    /*margin-bottom: 1px;*/
+}
+
+.param-pairs{
+    display: table-row;
+    width: 100%;
+    background-color:white
+}
+
+.param-pairs > div{
+    display: table-cell;
+    width: 48%;
+    height: 30px;
+    text-align: center;
+
+}
+
+.param-pairs > div.cancel{
+    width: 4%;
+}
+
+.param-pairs input{
+
+    display: inline-block;
+    width: 80%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: solid 1px black;
+    margin: 0 auto;
+    margin-top: 18px;
+    font-size: 10px;
+    word-break:break-all;
+    word-wrap: break-word;
+
+}
+
+div.value{
+    border-right: 0px
+}
+
+/*********请求部分*********/
+
+.tab-bar{
+    margin-top: 10px;
+    width: 100%;
+    border-bottom: solid 1px black;
+}
+
+.tab-bar > div{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+}
+
+.tab-cell{
+    display:table-cell;
+    /*width: %;*/
+    height: 40px;
+    border: solid 1px #C4C4C4;
+    vertical-align: middle;
+}
+
+button div{
+    width:60px;
+    margin: 0 auto;
+    text-align: center
+}
+
+button .focus{
+    width:100%;
+    background-color: #B32BD5;
+    height:3px;
+    position: absolute;
+    bottom: 0;
+    display: none
+}
+
+/*button:focus{
+    background-color: black;
+    color: white
+}*/
+
+.tab-board{
+    margin-top: 2px;
+    width: 100%;
+    display: none;
+
+}
+
+.req-header{
+    width: 49%;
+    display: table-cell;
+    text-align: center
+    /*padding-top: 2px;
+    padding-bottom: 5px;*/
+}
+
+.req-cookie{
+    width: 49%;
+    display: table-cell;
+    text-align: center
+    /*padding-top: 2px;
+    padding-bottom: 5px;*/
+}
+
+input.board-input{
+
+    width: 90%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: solid 1px black;
+    height: 30px;
+    margin: 0 auto;
+    padding-left: 10px;
+    color: #808080;
+
+}
+
+.cancel{
+    display: table-cell;
+    width: 2%;
+    vertical-align: middle;
+}
+
+.cancel button{
+    display: block;
+    margin-left:0;
+    margin-top: 15px;
+    width: 10px;
+    height: 10px;
+    background: url("../image/cancel.png");
+    background-size: 100%;
+    background-repeat: no-repeat
+}
+
+#header-board{
+    display: table;
+}
+
+
+/*body 面板样式*/
+.radio-bar{
+    padding: 5px;
+}
+
+.radio-bar > div{
+    display: inline-block;
+    font-size: 8px;
+    margin: 5px;
+}
+
+.content-type{
+    display: none;
+    width: 100%
+}
+
+#form-urlencoded{
+    display: table;
+    width: 100%
+}
+
+.req-body{
+    width: 49%;
+    display: table-cell;
+    text-align: center
+    /*padding-top: 2px;
+    padding-bottom: 5px;*/
+}
+
+/*tests board*/
+#req-tests-board{
+    width: 100%;
+    position: relative;
+}
+
+#req-tests-board textarea{
+    margin-top: 5px;
+    width: 80%;
+    height: 500px;
+    font-family: sans-serif;lp-
+    font-size: 14px;
+}
+
+#req-tests-board .description{
+    width: 18%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#req-tests-board .description span{
+    color: red;
+}
+
+/*以下为返回response面板部分*/
+#rsp-wrapper{
+    margin-top: 20px;
+}
+
+#rsp-bar > button{
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+
+}
+
+
+#rsp-body-options{
+    display: block;
+    width: 100%;
+    height: 36px;
+    margin-top: 10px;
+}
+
+#rsp-body-options select{
+    display:inline-block;
+    width: 80px;
+    height: 30px;
+    background-color: #E6E6E6;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 9px;
+}
+
+#rsp-body-show{
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    border: solid 1px #B3B3B3;
+}
+
+#rsp-body-show div{
+    margin: 0 auto;
+    width: 94%;
+    height: 500px;
+    font-size: 10px;
+}
+
+#rsp-cookie-board .tab-cell{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px black;
+    text-align: center;
+    padding-top: 10px;
+    height: 0
+
+}
+
+#rsp-cookie-board .tab-cell div{
+    width: 80px;
+    /* height: 40px; */
+    /*line-height: 60px;*/
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+    vertical-align: bottom
+}
+
+#rsp-cookie-board .rsp-cookie-detail .tab-cell div{
+    font-weight: normal;
+    font-size: 12px;
+}
+
+
+#rsp-header-board > div div{
+    /*height:30px;
+    line-height:30px;*/
+    border: 0;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 5px;
+    font-size: 13px;
+    display: inline-block;
+    word-break:break-all;
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+div.rsp-header-key{
+    font-weight: bold;
+}
+
+div.rsp-test-key{
+    font-weight: bold;
+}
+
+#rsp-header-board img{
+
+    margin-top: 5px;
+    width: 20px;
+
+}
+
+#rsp-test-board > div div{
+    height:30px;
+    line-height:30px;
+    border: 0;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 5px;
+    font-size: 15px;
+    display: inline-block;
+    word-break:break-all;
+    word-wrap: break-word;
+    vertical-align: middle;
+    font-family: fantasy;
+}
+
+div.test-pass{
+    color: green;
+}
+
+div.test-fail{
+    color: red;
+}
+
+div.test-error{
+    color: #C709F7
+}
+
+pre{
+
+white-space: pre-wrap;
+word-wrap: break-word;
+}

@@ -1,0 +1,30 @@
+<!--总网页模版 -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title%}{% endblock %}</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
+        {% block js_path %}{% endblock %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout.css')}}">
+        {% block css_path %}{% endblock %}
+
+    </head>
+    <body>
+        <div class="side-bar"> <!-- 侧边栏-->
+            <div>
+                <div class="curr-page" id="index"><a href="{{ url_for('index.show_index') }}">回到主页</a></div>
+                <div id="addCase"><a href="{{ url_for('processor.case_process') }}">新增接口</a></div>
+                <!-- <div><a href="{{ url_for('report_square.show_report_square') }}">修改接口</a></div> -->
+                <div id="caseSelect"><a href="{{ url_for('cases.display', page_num=1) }}">用例展示</a></div>
+                <div id="reportSquare"><a href="{{ url_for('report_square.show_report_square') }}">报告广场</a></div>
+            </div>
+        </div>
+        <div class="body-wrapper">
+            {% block body%}
+            {% endblock %}
+        </div>
+    </body>
+</html>

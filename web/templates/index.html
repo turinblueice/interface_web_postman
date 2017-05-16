@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}用例查看展示面板{% endblock %}
+{% block js_path %}
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script> -->
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            initSideBar();
+        })
+
+    </script>
+{% endblock %}
+{% block css_path %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+{% block body %}
+<div class="index-wrapper">
+    <div class="title">用法介绍</div>
+    <div class="content">
+        {% for line in lines %}
+            <div class="line">{{line}}</div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

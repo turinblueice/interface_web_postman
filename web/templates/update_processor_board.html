@@ -1,0 +1,201 @@
+{% extends "layout_no_sidebar.html" %}
+{% block title %}接口修改处理面板{% endblock %}
+{% block js_path %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/update-processor-board.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/processor.js') }}"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        initCaseBoard();
+        processor();
+    })
+
+</script>
+
+{% endblock %}
+
+{% block css_path %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/processor.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="mask" id="mask"></div>
+    <div class="case-frame" id="case-frame">
+        <div class="case-description">case名称</div>
+        <input id="case-name" type="text" value="{{case.name}}">
+        <div class="case-description">case描述</div>
+        <textarea>{% if case.description %}{{case.description}}{% endif %}</textarea>
+        <div class="case-description">case优先级</div>
+        <div class="prior-select">
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+        <div class="case-description">case分组</div>
+        <div class="group-select">
+            <div class="case-description">选择分组</div>
+            <select class="case-group-select">
+                {% for group in groups %}
+                    <option value="{{group.id}}">{{group.name}}</option>
+                {% endfor %}
+            </select>
+
+            <div class="case-description">新增分组</div>
+            <div><input type="text" name="addGroup" id="add-group"></div>
+        </div>
+
+
+        <div class="button-line">
+            <button id="frame-cancel">取消</button><button id="frame-ok">确定</button>
+        </div>
+    </div>
+    <div id="req-wrapper" class="wrapper">
+        <div id="header">
+            <div class="tab-row">
+                <div class="head-cell">
+                    <select class="select-table-cell" name="method">
+                        <option value="get">get</option>
+                        <option value="post">post</option>
+                    </select>
+                </div>
+                <div class="head-cell url">
+                    <input id="url" type="text" value="{{case.url}}">
+                </div>
+                <div class="head-cell">
+                    <button id="parameter">参数</button>
+                </div>
+                <div class="head-cell">
+                    <button class="send">发送请求</button>
+                </div>
+                <div class="head-cell">
+                    <button class="save-req">保存修改</button>
+                </div>
+            </div>
+        </div>
+        <div class="param">
+            <!-- <div class="param-pairs">
+                <div><input class="key-v" value={0}></div><div><input class="key-v" value={1}>
+                <div class="cancel"><button></button></div></div>
+            </div> -->
+        </div>
+        <div id="req-bar" class="tab-bar">
+            <div id="req-header-tab"><Button><div>Headers</div><div class="focus"></div></Button></div>
+            <div id="req-body-tab"><Button><div>Body</div><div class="focus"></div></Button></div>
+            <div id="req-cookie-tab"><Button><div>Cookie</div><div class="focus"></div></Button></div>
+            <div id="req-tests-tab"><Button><div>Tests</div><div class="focus"></div></Button></div>
+        </div>
+        <div id="req-board">
+            <div id="req-header-board" class="tab-board">
+                <div class="tab-row">
+                    {% if not case.headers %}
+                        <div class="req-header"><input class="board-input" type="text" placeholder="key"></div>
+                        <div class="req-header"><input class="board-input" type="text" placeholder="value"></div>
+                        <div class="cancel"><button></button></div>
+                    {% endif %}
+                    {% for key in case.headers %}
+                        <div class="req-header"><input class="board-input" type="text" placeholder="key" value="{{ key }}"></div>
+                        <div class="req-header"><input class="board-input" type="text" placeholder="value" value="{{ case.headers[key] }}"></div>
+                        <div class="cancel"><button></button></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="req-body-board" class="tab-board">
+                <div class="radio-bar">
+                    <div><input name="content-type" value="form-urlencoded" type="radio" checked><span>x-www-form-urlencoded</span></div>
+                    <div><input name="content-type" value="form-data" type="radio"><span>form-data</span></div>
+                </div>
+                <div id="form-urlencoded" class="content-type">
+                    {% if not case.data %}
+                        <div class="tab-row">
+                            <div class="req-body"><input class="board-input" type="text" placeholder="key"></div>
+                            <div class="req-body"><input class="board-input" type="text" placeholder="value"></div>
+                            <div class="cancel"><button></button></div>
+                        </div>
+                    {% endif %}
+                    {% for key in case.data %}
+                        <div class="tab-row">
+                            <div class="req-body"><input class="board-input" type="text" placeholder="key" value="{{key}}"></div>
+                            <div class="req-body"><input class="board-input" type="text" placeholder="value" value="{{case.data[key]}}"></div>
+                            <div class="cancel"><button></button></div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div id="form-data" class="content-type">
+                    <div class="tab-row">
+                        <div class="req-body"><input class="board-input" type="text" placeholder="key"></div>
+                        <div class="req-body"><input class="board-input" type="text" placeholder="value"></div>
+                        <div class="cancel"><button></button></div>
+                    </div>
+                </div>
+            </div>
+            <div id="req-cookie-board" class="tab-board">
+                {% if not case.cookies %}
+                    <div class="tab-row">
+                        <div class="req-cookie"><input class="board-input" type="text" placeholder="key"></div>
+                        <div class="req-cookie"><input class="board-input" type="text" placeholder="value"></div>
+                        <div class="cancel"><button></button></div>
+                    </div>
+                {% endif %}
+                {% for key in case.cookies %}
+                    <div class="tab-row">
+                        <div class="req-cookie"><input class="board-input" type="text" placeholder="key" value="{{ key }}"></div>
+                        <div class="req-cookie"><input class="board-input" type="text" placeholder="value" value="{{ case.cookies[key] }}"></div>
+                        <div class="cancel"><button></button></div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="req-tests-board" class="tab-board">
+                <div><textarea>{% if case.tests %}{{ case.tests }}{% endif %}</textarea></div>
+                <div class="description"><span>responseBody</span>: 返回的json对象</div>
+            </div>
+        </div>
+    </div>
+    <!-- 以下为请求返回内容部分 -->
+    <div id="rsp-wrapper" class="wrapper">
+        <div id="rsp-bar" class="tab-bar">
+            <div id="rsp-body-tab"><button>Body<div class="focus"></div></button></div>
+            <div id="rsp-cookie-tab"><button>Cookies<div class="focus"></div></button></div>
+            <div id="rsp-header-tab"><button>Headers<div class="focus"></div></button></div>
+            <div id="rsp-test-tab"><button>Tests<div class="focus"></div></button></div>
+        </div>
+        <div id="rsp-board">
+            <div id="rsp-body-board" class="tab-board">
+                <div id="rsp-body-options">
+                    <select class="select-table-cell" name="method">
+                        <option value="json" selected="selected">json</option>
+                        <option value="xml">xml</option>
+                        <option value="html">html</option>
+                    </select>
+                </div>
+                <div id="rsp-body-show"><pre>json内容</pre></div>
+            </div>
+            <div id="rsp-cookie-board" class="tab-board">
+                <div class="tab">
+                    <div class="tab-cell" id="cookie-name"><div>Name</div></div>
+                    <div class="tab-cell" id="cookie-value"><div>Value</div></div>
+                    <div class="tab-cell" id="cookie-domain"><div>Domain</div></div>
+                    <div class="tab-cell" id="cookie-path"><div>Path</div></div>
+                    <div class="tab-cell" id="cookie-expires"><div>Expires</div></div>
+                    <div class="tab-cell" id="cookie-httponly"><div>HTTP</div></div>
+                    <div class="tab-cell" id="cookie-secure"><div>Secure</div></div>
+                </div>
+                <!-- <div class="tab-row rsp-cookie-detail">
+                    <div class="tab-cell"><div>Name</div></div>
+                    <div class="tab-cell"><div>Value</div></div>
+                    <div class="tab-cell"><div>Domain</div></div>
+                    <div class="tab-cell"><div>Path</div></div>
+                    <div class="tab-cell"><div>Expires</div></div>
+                    <div class="tab-cell"><div>HTTP</div></div>
+                    <div class="tab-cell"><div>Secure</div></div>
+                </div> -->
+            </div>
+            <div id="rsp-header-board" class="tab-board">
+                <!-- <div><div class="rsp-header-key">Name</div><div><img src="{{url_for('static', filename='image/right.png')}}"></div><div>value</div></div> -->
+            </div>
+            <div id="rsp-test-board" class="tab-board">
+                <!-- <div><div class="rsp-test-key">testtttt</div><div class="">pass</div></div> -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

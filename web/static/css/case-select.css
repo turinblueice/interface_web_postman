@@ -1,0 +1,253 @@
+body {
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    box-pack: start;
+    -webkit-box-align: stretch;
+    -moz-box-align: stretch;
+    box-align: stretch;
+    background: #fff;
+}
+
+
+.group-select{
+    width: 90%;
+    margin: 0 auto;
+    border: solid 1px #BBBBBB;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.case-description {
+
+    display: inline-block;
+    font-size: 16px;
+}
+
+select {
+    width: 280px;
+    margin-top: 5px;
+    appearance: none; /*清除select下拉框默认样式*/
+    -moz-appearance: none; /*for firefox*/
+    -webkit-appearance: none; /*for chrome*/
+    padding-left: 25px;
+    font-size: 16px;
+    background: #E6E6E6 url("../image/arrow.png") no-repeat scroll right center;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 0;
+}
+
+.case-board{
+
+    width: 90%;
+    margin: 0 auto;
+    border: solid 1px #BBBBBB;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+@-webkit-keyframes click-wave {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    margin-left: -20px;
+    margin-top: -20px;
+    opacity: 0.0;
+  }
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  width: 20px;
+  height: 20px;
+  -webkit-transition: all 0.15s ease-out 0;
+  -moz-transition: all 0.15s ease-out 0;
+  transition: all 0.15s ease-out 0;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  margin-right: 0.5rem;
+  z-index: 1000;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background: #808080;
+}
+.option-input:checked::before {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: '\2713';
+  display: inline-block;
+  font-size: 13.66667px;
+  text-align: center;
+  line-height: 20px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #808080;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.case-wrapper{
+
+    width: 100%;
+    display: table;
+}
+
+.case-wrapper > div{
+
+    display: table-cell
+}
+
+.case-info{
+
+    width: 90%;
+    font-family: -webkit-pictograph;
+    /*font-style: italic;
+    font-weight: bold;*/
+    font-size: 13px;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 1.5em;
+}
+
+.case-update {
+    vertical-align: middle;
+    padding-left: 15px;
+    width: 5%
+
+}
+
+.case-delete {
+
+    vertical-align: middle;
+    padding-left: 15px;
+    width: 5%
+}
+
+.delete {
+
+    width: 12px;
+    height: 12px;
+    margin-left:0;
+    margin-top: 0px;
+    background: url("../image/cancel.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+}
+
+.update{
+
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left:0;
+    margin-top: 0px;
+    background: url("../image/modify.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+
+}
+
+.case-board .url{
+    margin-left:25px;
+    color: dimgrey;
+    /*font-style: italic*/
+}
+
+input{
+    height:40px;
+    line-height:40px;
+    margin-bottom: 8px;
+}
+
+.page-items{
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.page-item{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    border: solid 1px #BBBBBB;
+    border-radius: 5px;
+    margin-left: 2px;
+    text-align: center;
+}
+
+.page-item a{
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.page-item a:visited{
+
+    color: dimgray
+}
+
+.page-item-side{
+
+    width: 50px;
+    padding: 3px;
+
+}
+
+.current-page a{
+    background-color: darkgray;
+    color: white;
+}
+
+#btn-submit{
+    margin-top: 10px;
+    width: 50px;
+    height: 30px;
+    line-height: 25px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer
+}
+
